@@ -27,16 +27,16 @@ const AddExpenseModal = ({ isOpen, onClose, addExpense }) => {
   });
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [e.target.name]: e.target.value,
-    });
+    }));
   };
 
   const resetForm = () => {
     setFormData({
       title: "",
-      amount: "",
+      price: "",
       category: "",
       date: "",
     });
@@ -45,15 +45,15 @@ const AddExpenseModal = ({ isOpen, onClose, addExpense }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { title, amount, category, date } = formData;
+    const { title, price, category, date } = formData;
 
-    if (!title || !amount || !category || !date) {
+    if (!title || !price || !category || !date) {
       return;
     }
 
     const success = addExpense({
       title,
-      amount: Number(amount),
+      amount: Number(price),
       category,
       date,
     });
@@ -100,11 +100,8 @@ const AddExpenseModal = ({ isOpen, onClose, addExpense }) => {
           required
         >
           <option value="">Select Category</option>
-
           <option value="Food">Food</option>
-
           <option value="Entertainment">Entertainment</option>
-
           <option value="Travel">Travel</option>
         </select>
 
