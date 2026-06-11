@@ -45,12 +45,12 @@ function App() {
 
     setWalletBalance((prev) => prev - Number(expense.amount));
 
-    setExpenses([
+    setExpenses((prev) => [
       {
         id: Date.now(),
         ...expense,
       },
-      ...expenses,
+      ...prev,
     ]);
 
     return true;
