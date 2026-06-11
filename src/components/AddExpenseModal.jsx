@@ -21,7 +21,7 @@ const customStyles = {
 const AddExpenseModal = ({ isOpen, onClose, addExpense }) => {
   const [formData, setFormData] = useState({
     title: "",
-    amount: "",
+    price: "",
     category: "",
     date: "",
   });
@@ -85,10 +85,10 @@ const AddExpenseModal = ({ isOpen, onClose, addExpense }) => {
 
         <input
           type="number"
-          name="amount"
+          name="price"
           placeholder="Price"
           min="1"
-          value={formData.amount}
+          value={formData.price}
           onChange={handleChange}
           required
         />
