@@ -86,7 +86,7 @@ function App() {
       ),
     );
   };
-
+  // render ui
   return (
     <div className="app">
       <h1 className="heading">Expense Tracker</h1>
